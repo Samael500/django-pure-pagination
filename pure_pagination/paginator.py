@@ -170,12 +170,12 @@ class Page(object):
         if self.paginator.num_pages <= PAGE_RANGE_DISPLAYED:
             return range(1, self.paginator.num_pages+1)
         result = []
-        left_side = PAGE_RANGE_DISPLAYED/2
+        left_side = PAGE_RANGE_DISPLAYED//2
         right_side = PAGE_RANGE_DISPLAYED - left_side
-        if self.number > self.paginator.num_pages - PAGE_RANGE_DISPLAYED/2:
+        if self.number > self.paginator.num_pages - PAGE_RANGE_DISPLAYED//2:
             right_side = self.paginator.num_pages - self.number
             left_side = PAGE_RANGE_DISPLAYED - right_side
-        elif self.number < PAGE_RANGE_DISPLAYED/2:
+        elif self.number < PAGE_RANGE_DISPLAYED//2:
             left_side = self.number
             right_side = PAGE_RANGE_DISPLAYED - left_side
         for page in range(1, self.paginator.num_pages+1):
